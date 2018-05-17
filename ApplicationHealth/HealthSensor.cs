@@ -31,11 +31,13 @@ namespace ApplicationHealth
         public void SetState(HealthState state)
         {
             State = state;
+            Message = "Last success result stored at " + DateTime.UtcNow;
         }
 
         public void SetState(Exception ex)
         {
             State = HealthState.Failed;
+            Message = "Last error result stored at " + DateTime.UtcNow;
         }
 
         public void SetState(Exception ex, string message)

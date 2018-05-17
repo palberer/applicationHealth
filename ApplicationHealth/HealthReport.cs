@@ -14,7 +14,7 @@ namespace ApplicationHealth
             ApplicationInformation = applicationInformation;
         }
 
-        public string OverallResult => healthSensors.Where(s => s.IsEssential).All(s => s.State == HealthState.Ok) ? "CHECK_OK" : "CHECK_FAILED";
+        public string OverallResult => healthSensors.Where(s => s.IsEssential).All(s => s.IsHealthy) ? "CHECK_OK" : "CHECK_FAILED";
         public DateTime Timestamp => DateTime.UtcNow;
         public ApplicationInformation ApplicationInformation { get; private set; }
 
